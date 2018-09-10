@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myAp" ng-controller="siteCtr">
+<h1>{{name}}</h1>
+</div>
+<script>
+    var app = angular.module('myAp', []);
+        app.controller('siteCtr',function ($scope,$http) {
+            $http({
+                method:'GET',
+                url:'https://www.runoob.com/try/angularjs/data/sites.php'
+            }).then(function successCallback(response) {
+                $scope.name=response.data.sites;
+            })
+        });
+
+</script>
+</body>
+</html>

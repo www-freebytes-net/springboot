@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myContro">
+    <!--<input ng-model="name" type="text" placeholder="Your name"/>-->
+    <h1>Hello {{ clock }}!</h1>
+</div>
+<script type="text/javascript" src="js/app.js">
+</script>
+
+<h2>ng-repeat</h2>
+<div ng-app-="" ng-init="names=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'Kai',country:'Denmark'}]">
+    <p>使用ng-repeat循环数组</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{x.name}}
+        </li>
+    </ul>
+</div>
+<div custom-tag></div>
+
+<h3>验证用户输入</h3>
+<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+</form>
+
+
+<h1>状态</h1>
+<form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">
+    Email:
+    <input type="email" name="myAddress" ng-model="myText" required></p>
+    {{myForm.myAddress.$valid}}
+    {{myForm.myAddress.$dirty}}
+    {{myForm.myAddress.$touched}}
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+        input.ng-invalid {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<!--<form ng-app="" name="myForm">-->
+    <!--输入你的名字:-->
+    <!--<input name="myAddres" ng-model="text" required>-->
+<!--</form>-->
+
+<div ng-app="myApp1" ng-controller="myCtrl1">
+    <h1>{{name}}</h1>
+</div>
+
+<script>
+    var app= angular.module('myApp1',[]);
+    app.controller('myCtrl1',function ($scope) {
+        $scope.name="测试";
+    });
+</script>
+
+
+
+
+</body>
+</html>
