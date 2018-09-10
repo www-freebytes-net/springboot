@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<h1> Hello Vue</h1>
+<h2> {{msg}}</h2>
+
+<div id="app2">
+    <p v-if="isDisplay">现在你看到我了</p>
+</div>
+
+<div id="app3" >
+    <ol>
+        <li v-for="item in list">
+            {{item.text}}
+        </li>
+    </ol>
+</div>
+
+<div id="app4">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: 'h2',
+        data: {
+            msg: 'you are welcome!'
+        }
+    });
+    var app2=new Vue({
+        el:'#app2',
+        data:{
+            isDisplay:true
+        }
+    })
+    app2.isDisplay=false;
+
+    var app3=new Vue({
+        el:'#app3',
+        data:{
+            list:[
+                {text:'学习vue'},
+                {text:'学习vue'},
+                {text:'学习vue'},
+            ]
+        }
+    })
+
+    var app4 = new Vue({
+        el: '#app4',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
+
+
+</body>
+</html>
