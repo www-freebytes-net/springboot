@@ -19,11 +19,10 @@ public class ArrayStack {
 
     //压入元素
     public void push(Object o) {
-        if (top == capicity) {
+        if ((top +1)== capicity) {
             grow();
-        } else {
-            stack[++top] = o;
         }
+        stack[++top] = o;
     }
 
     //删除栈顶元素
@@ -45,8 +44,7 @@ public class ArrayStack {
     //弹出栈顶元素
     public Object pop() {
         Object peek = peek();
-        stack[top] = null;
-        top--;
+        remove();
         return peek;
     }
 
@@ -54,13 +52,27 @@ public class ArrayStack {
      * 是否需要扩容，如果需要，则扩大一倍并返回true，不需要则返回false
      */
     private void grow() {
-        int newCapicity = (capicity >> 1) > Integer.MAX_VALUE ? Integer.MAX_VALUE : capicity >> 1;
+        int newCapicity = (capicity << 1) > Integer.MAX_VALUE ? Integer.MAX_VALUE : capicity << 1;
         stack = Arrays.copyOf(stack, newCapicity);
         this.capicity = newCapicity;
     }
 
 
     public static void main(String[] args) {
+        ArrayStack arrayStack = new ArrayStack(2);
+        arrayStack.push(1);
+        arrayStack.push(2);
+        arrayStack.push(3);
+        arrayStack.push(4);
+        arrayStack.push("doubi");
+//        System.out.println(arrayStack.peek());
+//        System.out.println(arrayStack.isEmpty());
+//        System.out.println(arrayStack.pop());
+//        System.out.println(arrayStack.peek());
+
+        while (!arrayStack.isEmpty()){
+            System.out.println(arrayStack.pop());
+        }
 
     }
 

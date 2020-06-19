@@ -1,7 +1,7 @@
 package com.yue.springboot.upload.service;
 
 import com.yue.springboot.upload.entity.ProgressEntity;
-import org.apache.tomcat.util.http.fileupload.ProgressListener;
+import org.apache.commons.fileupload.ProgressListener;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSession;

@@ -1,6 +1,6 @@
 1.  程序: Test3
 2.  jvm参数 :  -Xmx20m -Xms20m -XX:NewRatio=1 -XX:+PrintHeapAtGC  -XX:SurvivorRatio=3
-     设置堆内存最大最小值为20M，新生代与老年代内存比率为1:1，eden与幸存区的比率为2:1:1    打印GC前后的详细堆参数
+     设置堆内存最大最小值为20M，新生代与老年代内存比率为1:1，eden与幸存区的比率为3:1:1    打印GC前后的详细堆参数
 3.  结果：
 {Heap before GC invocations=1 (full 0):
  PSYoungGen      total 8192K, used 5381K [0x00000000ff600000, 0x0000000100000000, 0x0000000100000000)

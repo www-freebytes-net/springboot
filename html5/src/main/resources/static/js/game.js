@@ -82,11 +82,11 @@ var calculate = function () {
         console.log('总时长:       ' + initCountTime)
         console.log('总消除字符：         ' + initCountClearChar);
         speed = parseInt(initCountClearChar / initCountTime * 1000) / 1000;
-        if (speed > maxSpeed) {
-            maxSpeed = speed;
-        }
         if (initCountTime > 10) {
-            displyaSpeed(maxSpeed);
+            if (speed > maxSpeed) {
+                maxSpeed = speed;
+                displyaSpeed(maxSpeed);
+            }
         }
     }, 1000, 2000);
     return speed;
