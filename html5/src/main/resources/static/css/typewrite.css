@@ -1,0 +1,104 @@
+body{
+    background-image: url("../img/5d28.jpg");
+}
+
+/*包含以下五种的链接*/
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+/*正常的未被访问过的链接*/
+a:link {
+    text-decoration: none;
+}
+/*已经访问过的链接*/
+a:visited {
+    text-decoration: none;
+}
+/*鼠标划过(停留)的链接*/
+a:hover {
+    text-decoration: none;
+}
+/* 正在点击的链接，鼠标在元素上按下还没有松开*/
+a:active {
+    text-decoration: none;
+}
+/* 获得焦点的时候 鼠标松开时显示的颜色*/
+a:focus {
+    text-decoration: none;
+}
+
+a{
+    color: #decccc8c;
+    font-size:24px;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+}
+.main{
+    width:1200px;
+    height: 800px;
+    margin:0 auto;
+    position: relative;
+}
+
+
+#left{
+    border: azure solid 1px;
+    float: left;
+    width: 1000px;
+    height: 800px;
+}
+
+#right{
+    border: azure solid 1px;
+    float: right;
+    height: 800px;
+    width: 190px;
+    text-align: center;
+}
+ #right img{
+     width: 150px;
+     height: 150px;
+     margin: 10px auto;
+     border-radius: 50%;
+     -webkit-transform: rotate(360deg);
+     animation: rotation 20s linear infinite;
+     -moz-animation: rotation 20s linear infinite;
+     -webkit-animation: rotation 20s linear infinite;
+     -o-animation: rotation 20s linear infinite;
+ }
+@-webkit-keyframes rotation{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+#right p{
+    color: #ffff;
+}
+.foot{
+    border: azure solid 1px;
+    width: 1200px;
+    height: 100px;
+    margin: 5px  auto;
+    text-align: center;
+}
+.foot button{
+    float: left;
+    display: block;
+    background-color: azure;
+    border-radius: 10px;
+    border:0;
+    height: 40px;
+    width: 150px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 70px;
+
+}
+.foot button:hover{
+    background-color: yellow;
+}
+.foot .music{
+    width: 200px;
+    margin: 20px auto;
+}

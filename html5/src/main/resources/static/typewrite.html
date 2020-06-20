@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS打字游戏 – 明月工作室</title>
+    <meta name="keywords" content="JS打字游戏">
+    <meta name="description" content="JS打字游戏 - 明月工作室">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="css/typewrite.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<a href="https://www.freebytes.net" target="_blank">回到首页</a>
+
+<div class="main">
+    <div id="left" ></div>
+    <div id="right">
+        <img src="./img/1.jpg"/>
+        <img src="./img/2.jpg"/>
+        <img src="./img/3.jpg"/>
+        <img src="./img/4.jpg"/>
+        <p>您的最高打字速度：</p>
+    </div>
+</div>
+<div class="foot">
+    <script src="js/typewrite.js"></script>
+    <button onclick="myClick()" style="background-color: yellow;">开始游戏</button>
+    <button onclick="changeSpeed(1)">坐上宝马</button>
+    <button onclick="changeSpeed(2)">私人飞机</button>
+    <button onclick="changeSpeed(3)">人生巅峰</button>
+    <audio controls="controls" autoplay  loop class="music" volume="0.3">
+        <source src="./audio/xiatian.mp3" type="audio/mp3" />
+    </audio>
+</div>
+</body>
+</html>

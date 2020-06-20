@@ -9,6 +9,7 @@ log/
 **/test/
 **/dist/
 build/buildresult/
+*.class
 
 !.mvn/wrapper/maven-wrapper.jar
 
