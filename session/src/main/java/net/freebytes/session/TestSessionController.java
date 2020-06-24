@@ -65,14 +65,14 @@ public class TestSessionController {
     /**
      * 使用spring-security的情况
      * 通过StandardSession获取Manager（管理session的容器）
-     *
+     *（不使用spring-security的情况下也可以用这种方式）
      * @param sessionFacade
      * @return
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
     private Map<String, Object> dissectRequest(StandardSessionFacade sessionFacade) throws NoSuchFieldException, IllegalAccessException {
-        Map<String, Object> map = new LinkedHashMap<>(8);
+        Map<String, Object> map = new LinkedHashMap(8);
         Field sessionFacadeField = sessionFacade.getClass().getDeclaredField("session");
         sessionFacadeField.setAccessible(true);
         HttpSession httpSession = (HttpSession) sessionFacadeField.get(sessionFacade);
@@ -89,14 +89,13 @@ public class TestSessionController {
     /**
      * 不使用spring-security的情况
      * 通过Request获取ManagerBase（管理session的容器）
-     *
      * @param requestFacade
      * @return
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
     private Map<String, Object> dissectRequest(RequestFacade requestFacade) throws NoSuchFieldException, IllegalAccessException {
-        Map<String, Object> map = new LinkedHashMap<>(8);
+        Map<String, Object> map = new LinkedHashMap(8);
         Field declaredField = requestFacade.getClass().getDeclaredField("request");
         declaredField.setAccessible(true);
         Request trueRequest = (Request) declaredField.get(requestFacade);
