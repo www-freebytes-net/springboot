@@ -1,4 +1,4 @@
-package cn.qian.adapter;
+package cn.qian.adapter.s2;
 
 /**
  * Created by 千里明月 on 2018/12/27.
@@ -16,11 +16,11 @@ package cn.qian.adapter;
  * SDk或者jar包,并暴露了开机和关机的接口, 用户希望统一这两个接口规范, 就自定义了一个
  * 接口, 定义了两个开机\关机的方法, 这时候,就可以声明两个适配器去实现这个自定义接口,
  * 但是适配器的实现方法中是分别调用A\B厂商的sdk去实现的, 至于怎么去调用, 分成了两种方式, 一种是
- * 适配器通过继承sdk的实现类, 继而通过调用父类的方法去实现; 一种是把sdk的实现子类通过属性的方式
+ * 适配器通过继承sdk的实现类, 继而通过调用父类的方法去实现; 一种是把sdk的实现类通过属性的方式
  * 设置到适配器中,以此调用.
  * 2....
  */
-public class App1 {
+public class App {
     public static void main(String[] args) {
         //实现适配器前的调用
         System.out.println("----实现适配器前的调用----");
@@ -32,13 +32,12 @@ public class App1 {
 
         //实现适配器后的调用
         System.out.println("----实现适配器后的调用----");
-        ControllDevice adpter = new LongoAdpter(new LongoAdptee());
+        ControllDevice adpter = new LongoAdpter();
         adpter.shutdown();
-        adpter = new NanyiAdpter(new NanyiAdptee());
+        adpter = new NanyiAdpter();
         adpter.shutdown();
     }
 }
-
 
 
 class LongoAdptee {
@@ -64,27 +63,19 @@ interface ControllDevice {
 /**
  * 适配器，适配朗格设备的开机方法
  */
-class LongoAdpter implements ControllDevice {
-    private LongoAdptee adptee;
-    public LongoAdpter(LongoAdptee adptee) {
-        this.adptee = adptee;
-    }
+class LongoAdpter extends LongoAdptee implements ControllDevice {
     @Override
     public void shutdown() {
-        adptee.shutdownForLongo();
+        super.shutdownForLongo();
     }
 }
 
 /**
  * 适配器，适配南艺设备的开机方法
  */
-class NanyiAdpter implements ControllDevice {
-    private NanyiAdptee adptee;
-    public NanyiAdpter(NanyiAdptee adptee) {
-        this.adptee = adptee;
-    }
+class NanyiAdpter extends NanyiAdptee implements ControllDevice {
     @Override
     public void shutdown() {
-        adptee.shutdownForNanyi();
+        super.shutdownForNanyi();
     }
 }

@@ -10,7 +10,7 @@ import org.apache.catalina.session.StandardSessionFacade;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,13 +20,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @version 1.0
- * @author: 千里明月
- * @date: 2019/6/19 17:05
+ * version 1.0
+ * author: 千里明月
  */
-@RestController
-@RequestMapping("/test")
-public class TestSessionController {
+@RequestMapping("/session")
+public class SessionComponent {
 
     /**
      * session失效时长
@@ -105,6 +103,7 @@ public class TestSessionController {
     }
 
     @GetMapping("/getSessions")
+    @ResponseBody
     public Map getActiveSessions(HttpServletRequest request) throws NoSuchFieldException, IllegalAccessException {
         HttpSession session = request.getSession();
 

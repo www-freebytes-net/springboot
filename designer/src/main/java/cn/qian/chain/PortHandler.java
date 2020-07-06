@@ -6,6 +6,7 @@ import java.net.URL;
 /**
  * Created by 千里明月 on 2019/1/8.
  */
+//负责处理端口
 public class PortHandler extends Handler {
 
     @Override

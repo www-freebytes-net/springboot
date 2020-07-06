@@ -21,6 +21,7 @@
         <module>jdk</module>
         <module>io</module>
         <module>session</module>
+        <module>multi-thread</module>
     </modules>
 
     <properties>
