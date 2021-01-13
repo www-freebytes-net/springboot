@@ -9,6 +9,8 @@ let containerWidth = 0;
 let containerHeight = 0;
 // 食物块集合
 let foodMap = new Map();
+//蛇块总数
+let snakeBlockSum = 0;
 // 控制蛇移动的定时器id
 let moveTimerId = 0;
 // 控制蛇移动的速度
@@ -18,6 +20,11 @@ let up = 'up';
 let down = 'down';
 let left = 'left';
 let right = 'right';
+//蛇的当前移动方向
+let currentDirection = 'down';
+//游戏是否已经暂停
+let isPause = false;
+
 
 // 容器对象
 function Container(width, height, left, top, bgColor, el) {
@@ -184,6 +191,7 @@ function Snake(head) {
         }
         var food = foodMap.get(head.left + '-' + head.top);
         var block = foodToBlock(food);
+        snakeBlockSum++;
         // console.log(block)
         block.previousTop = head.previousBloker.top;
         block.previousLeft = head.previousBloker.left;
@@ -205,7 +213,6 @@ function produceFood() {
 
 //食物块转为普通块
 function foodToBlock(food) {
-    var block = new Blocker();
     food.bgColor = 'lightBlue';
     food.borderRadius = '0';
     var el = document.getElementById(food.id);
@@ -231,6 +238,7 @@ function initSnake() {
     putBlockerToContainer(container, blocker2);
     putBlockerToContainer(container, blocker3);
     var snake = new Snake(blocker3);
+    snakeBlockSum+=3;
     return snake;
 }
 // 获取uuid
@@ -248,9 +256,21 @@ function uuid() {
 }
 // 键盘移动蛇对象
 function moveSnake(snake) {
+
+    //动态增加移动速度
+    setInterval(function () {
+
+    },10*1000);
+
     //获取键盘事件
     document.onkeydown = function (event) {
         var e = event || window.event || arguments.callee.caller.arguments[0];
+
+        if (e && e.keyCode == 32) {//按空格键
+            clearInterval(moveTimerId);
+            isPause = true;
+        }
+
         if (e && e.keyCode == 38) { // 按 up
             //如果方向相反，则不作理会
             var nextLeft = snake.head.left;
@@ -262,7 +282,8 @@ function moveSnake(snake) {
             clearInterval(moveTimerId);
             //开启新的移动定时器
             snake.move(moveSpeed, up);
-
+            currentDirection = up;
+            isPause = false;
         }
         if (e && e.keyCode == 40) { // 按 down
             //如果方向相反，则不作理会
@@ -273,6 +294,8 @@ function moveSnake(snake) {
             }
             clearInterval(moveTimerId);
             snake.move(moveSpeed, down);
+            currentDirection = down;
+            isPause = false;
         }
         if (e && e.keyCode == 37) { // 按left
             //如果方向相反，则不作理会
@@ -283,6 +306,8 @@ function moveSnake(snake) {
             }
             clearInterval(moveTimerId);
             snake.move(moveSpeed, left);
+            currentDirection = left;
+            isPause = false;
         }
         if (e && e.keyCode == 39) { // 按right
             //如果方向相反，则不作理会
@@ -293,6 +318,8 @@ function moveSnake(snake) {
             }
             clearInterval(moveTimerId);
             snake.move(moveSpeed, right);
+            currentDirection = right;
+            isPause = false;
         }
     };
 

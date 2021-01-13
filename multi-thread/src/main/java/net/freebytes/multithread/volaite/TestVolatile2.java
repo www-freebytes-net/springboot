@@ -1,4 +1,4 @@
-package net.freebytes.multithread;
+package net.freebytes.multithread.volaite;
 
 /**
  * @date: 2020/7/4 19:25

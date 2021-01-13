@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="明月工作室,java,docker,技术,it,Linux,微服务,jvm,网络,技术分享,千里明月,freebytes,明月,工作室,mysql,明月千里寄相思">
+    <title>拖动效果</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 150px;
+            border: 1px solid black;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div style="background-color: lightpink;height:500px;width: 500px;" draggable="true"
+     ondragstart="dragstart(event)"></div>
+
+
+<div id='dragId' draggable='true' ondragstart="dragstart(event)">我是可以拖拽的文字</div>
+
+<div id='dragboxId' class="box" ondrop="drop(event)" ondragover='dragover(event)'></div>
+<script>
+    function dragstart(event) {
+        // 将拖拽对象id存储在dataTransfer中
+        event.dataTransfer.setData("dragContent", event.target.id);
+    }
+    function drop(event) {
+        event.preventDefault();
+        //把拖拽对象放入目标容器中
+        let data = event.dataTransfer.getData('dragContent');
+        event.target.appendChild(document.getElementById(data))
+    }
+    function dragover(event) {
+        event.preventDefault();
+    }
+</script>
+</body>
+</html>
